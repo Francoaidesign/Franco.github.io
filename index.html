@@ -12,62 +12,318 @@
       --shadow:0 30px 80px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:var(--text);
-      background:radial-gradient(circle at top right, rgba(124,58,237,.24), transparent 35%),
-      radial-gradient(circle at bottom left, rgba(59,130,246,.16), transparent 30%),
-      linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 40%, #050816 100%);}
+    html,body{
+      margin:0;
+      min-height:100%;
+      font-family:"Segoe UI",Tahoma,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(124,58,237,.24), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(59,130,246,.16), transparent 30%),
+        linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 40%, #050816 100%);
+    }
     a{color:inherit}
     .page{min-height:100vh;display:grid;grid-template-columns:420px 1fr}
-    .editor{border-left:1px solid var(--line);background:rgba(0,0,0,.22);backdrop-filter:blur(16px);padding:24px}
-    .editor-inner{position:sticky;top:0;max-height:100vh;overflow:auto;padding-left:6px}
+    .editor{
+      border-left:1px solid var(--line);
+      background:rgba(0,0,0,.22);
+      backdrop-filter:blur(16px);
+      padding:24px
+    }
+    .editor-inner{
+      position:sticky;
+      top:0;
+      max-height:100vh;
+      overflow:auto;
+      padding-left:6px
+    }
     .title{font-size:30px;font-weight:800;margin:0 0 10px}
     .intro{margin:0;color:var(--muted);font-size:14px;line-height:1.9}
-    .section{margin-top:18px;border:1px solid var(--line);background:var(--card);border-radius:28px;padding:16px}
+    .section{
+      margin-top:18px;
+      border:1px solid var(--line);
+      background:var(--card);
+      border-radius:28px;
+      padding:16px
+    }
     .section-title{margin:0 0 14px;font-size:14px;font-weight:700;color:#ddd6fe}
-    .field{margin-bottom:14px}.field:last-child{margin-bottom:0}
-    .field label{display:block;margin-bottom:8px;color:var(--muted);font-size:14px}
-    .field input,.field textarea{width:100%;border:1px solid var(--line);background:rgba(0,0,0,.28);color:#fff;border-radius:18px;padding:14px 16px;outline:none;font-size:14px;transition:.2s ease}
+    .field{margin-bottom:14px}
+    .field:last-child{margin-bottom:0}
+    .field label{
+      display:block;
+      margin-bottom:8px;
+      color:var(--muted);
+      font-size:14px
+    }
+    .field input,.field textarea{
+      width:100%;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.28);
+      color:#fff;
+      border-radius:18px;
+      padding:14px 16px;
+      outline:none;
+      font-size:14px;
+      transition:.2s ease
+    }
+    .field input[type="file"]{display:none}
     .field textarea{resize:none;min-height:110px}
     .field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.24)}
-    .field input:focus,.field textarea:focus{border-color:rgba(167,139,250,.6);box-shadow:0 0 0 4px rgba(167,139,250,.12)}
+    .field input:focus,.field textarea:focus{
+      border-color:rgba(167,139,250,.6);
+      box-shadow:0 0 0 4px rgba(167,139,250,.12)
+    }
     .hint{margin:12px 0 0;color:var(--muted2);font-size:12px;line-height:1.8}
-    .link-card{border:1px solid var(--line);background:var(--card2);border-radius:22px;padding:14px;margin-bottom:14px}
+    .link-card{
+      border:1px solid var(--line);
+      background:var(--card2);
+      border-radius:22px;
+      padding:14px;
+      margin-bottom:14px
+    }
     .link-label{color:var(--muted2);font-size:12px;margin-bottom:10px}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .action-btn{border:none;border-radius:16px;padding:12px 16px;font-weight:700;cursor:pointer;transition:.2s ease}
-    .primary-btn{background:rgba(167,139,250,.18);color:#fff;border:1px solid rgba(167,139,250,.28)}
+    .action-btn{
+      border:none;
+      border-radius:16px;
+      padding:12px 16px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease
+    }
+    .primary-btn{
+      background:rgba(167,139,250,.18);
+      color:#fff;
+      border:1px solid rgba(167,139,250,.28)
+    }
     .primary-btn:hover{background:rgba(167,139,250,.25)}
-    .secondary-btn{background:rgba(255,255,255,.06);color:#fff;border:1px solid var(--line)}
+    .secondary-btn{
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      border:1px solid var(--line)
+    }
     .secondary-btn:hover{background:rgba(255,255,255,.10)}
+    .upload-row{display:flex;gap:10px;flex-wrap:wrap}
+    .upload-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      min-height:48px;
+      padding:12px 16px;
+      border-radius:16px;
+      cursor:pointer;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      color:#fff;
+      font-weight:700;
+      transition:.2s ease
+    }
+    .upload-btn:hover{background:rgba(255,255,255,.10)}
+    .clear-btn{
+      min-height:48px;
+      padding:12px 16px;
+      border-radius:16px;
+      cursor:pointer;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      color:#fff;
+      font-weight:700;
+    }
+    .clear-btn:hover{background:rgba(255,255,255,.08)}
+    .file-name{
+      margin-top:8px;
+      color:var(--muted2);
+      font-size:12px;
+      line-height:1.7;
+      word-break:break-word
+    }
     .preview-wrap{padding:30px 14px;position:relative}
-    .phone-shell{max-width:520px;margin:0 auto;border:1px solid var(--line);border-radius:34px;overflow:hidden;background:var(--card);backdrop-filter:blur(18px);box-shadow:var(--shadow)}
-    .cover{position:relative;height:220px;background:rgba(255,255,255,.04);overflow:hidden}
-    .cover img{width:100%;height:100%;object-fit:cover;display:block}
-    .cover-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.35);font-size:14px;padding:20px;text-align:center}
-    .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.25), rgba(0,0,0,.08));pointer-events:none}
+    .phone-shell{
+      max-width:520px;
+      margin:0 auto;
+      border:1px solid var(--line);
+      border-radius:34px;
+      overflow:hidden;
+      background:var(--card);
+      backdrop-filter:blur(18px);
+      box-shadow:var(--shadow)
+    }
+    .cover{
+      position:relative;
+      height:220px;
+      background:rgba(255,255,255,.04);
+      overflow:hidden
+    }
+    .cover img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block
+    }
+    .cover-placeholder{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(255,255,255,.35);
+      font-size:14px;
+      padding:20px;
+      text-align:center
+    }
+    .cover::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.25), rgba(0,0,0,.08));
+      pointer-events:none
+    }
     .content{padding:0 22px 28px;position:relative}
-    .avatar-wrap{margin-top:-58px;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center}
-    .avatar,.avatar-placeholder{width:116px;height:116px;border-radius:50%;outline:4px solid rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.30);box-shadow:0 12px 30px rgba(0,0,0,.30);overflow:hidden;background:rgba(255,255,255,.08)}
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-    .avatar-placeholder{display:flex;align-items:center;justify-content:center;text-align:center;color:rgba(255,255,255,.45);font-size:13px;line-height:1.5;padding:10px}
-    .name{margin-top:18px;font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.02em;word-break:break-word}
-    .job{margin-top:8px;color:var(--violet);font-weight:600;font-size:16px;line-height:1.6;word-break:break-word}
-    .bio{margin-top:14px;color:rgba(255,255,255,.82);max-width:360px;font-size:15px;line-height:2;word-break:break-word}
-    .links{margin-top:28px;display:flex;flex-direction:column;gap:14px}
-    .empty-box{border:1px dashed rgba(255,255,255,.16);background:rgba(255,255,255,.04);border-radius:28px;text-align:center;color:rgba(255,255,255,.45);padding:28px 18px;line-height:1.8;font-size:14px}
-    .preview-link{display:flex;align-items:center;gap:16px;text-decoration:none;border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:28px;padding:16px;transition:.25s ease}
-    .preview-link:hover{background:rgba(255,255,255,.10);border-color:var(--line2);transform:translateY(-1px)}
-    .link-icon{width:58px;height:58px;min-width:58px;border-radius:20px;background:rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center;font-size:22px}
+    .avatar-wrap{
+      margin-top:-58px;
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center
+    }
+    .avatar,.avatar-placeholder{
+      width:116px;
+      height:116px;
+      border-radius:50%;
+      outline:4px solid rgba(255,255,255,.12);
+      border:2px solid rgba(255,255,255,.30);
+      box-shadow:0 12px 30px rgba(0,0,0,.30);
+      overflow:hidden;
+      background:rgba(255,255,255,.08)
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block
+    }
+    .avatar-placeholder{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:rgba(255,255,255,.45);
+      font-size:13px;
+      line-height:1.5;
+      padding:10px
+    }
+    .name{
+      margin-top:18px;
+      font-size:34px;
+      font-weight:800;
+      line-height:1.15;
+      letter-spacing:-.02em;
+      word-break:break-word
+    }
+    .job{
+      margin-top:8px;
+      color:var(--violet);
+      font-weight:600;
+      font-size:16px;
+      line-height:1.6;
+      word-break:break-word
+    }
+    .bio{
+      margin-top:14px;
+      color:rgba(255,255,255,.82);
+      max-width:360px;
+      font-size:15px;
+      line-height:2;
+      word-break:break-word
+    }
+    .links{
+      margin-top:28px;
+      display:flex;
+      flex-direction:column;
+      gap:14px
+    }
+    .empty-box{
+      border:1px dashed rgba(255,255,255,.16);
+      background:rgba(255,255,255,.04);
+      border-radius:28px;
+      text-align:center;
+      color:rgba(255,255,255,.45);
+      padding:28px 18px;
+      line-height:1.8;
+      font-size:14px
+    }
+    .preview-link{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      text-decoration:none;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      border-radius:28px;
+      padding:16px;
+      transition:.25s ease
+    }
+    .preview-link:hover{
+      background:rgba(255,255,255,.10);
+      border-color:var(--line2);
+      transform:translateY(-1px)
+    }
+    .link-icon{
+      width:58px;
+      height:58px;
+      min-width:58px;
+      border-radius:20px;
+      background:rgba(255,255,255,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px
+    }
     .link-text{flex:1;min-width:0;text-align:right}
-    .link-title{font-size:18px;font-weight:700;line-height:1.4;word-break:break-word}
-    .link-subtitle{margin-top:4px;color:rgba(255,255,255,.65);font-size:14px;line-height:1.7;word-break:break-word}
+    .link-title{
+      font-size:18px;
+      font-weight:700;
+      line-height:1.4;
+      word-break:break-word
+    }
+    .link-subtitle{
+      margin-top:4px;
+      color:rgba(255,255,255,.65);
+      font-size:14px;
+      line-height:1.7;
+      word-break:break-word
+    }
     .arrow{color:rgba(255,255,255,.45);font-size:22px;line-height:1}
-    .wa-btn{display:block;margin-top:18px;text-align:center;text-decoration:none;background:var(--greenBg);border:1px solid var(--greenLine);color:#fff;border-radius:20px;padding:14px 18px;font-weight:700;transition:.25s ease}
+    .wa-btn{
+      display:block;
+      margin-top:18px;
+      text-align:center;
+      text-decoration:none;
+      background:var(--greenBg);
+      border:1px solid var(--greenLine);
+      color:#fff;
+      border-radius:20px;
+      padding:14px 18px;
+      font-weight:700;
+      transition:.25s ease
+    }
     .wa-btn:hover{background:rgba(34,197,94,.26)}
-    .footer-note{margin-top:22px;text-align:center;color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.08em}
+    .footer-note{
+      margin-top:22px;
+      text-align:center;
+      color:rgba(255,255,255,.35);
+      font-size:12px;
+      letter-spacing:.08em
+    }
     @media (max-width:980px){
-      .page{grid-template-columns:1fr}.editor{border-left:none;border-bottom:1px solid var(--line)}
-      .editor-inner{position:relative;max-height:none;overflow:visible}.preview-wrap{padding:22px 12px 28px}.name{font-size:30px}
+      .page{grid-template-columns:1fr}
+      .editor{border-left:none;border-bottom:1px solid var(--line)}
+      .editor-inner{position:relative;max-height:none;overflow:visible}
+      .preview-wrap{padding:22px 12px 28px}
+      .name{font-size:30px}
     }
   </style>
 </head>
@@ -76,16 +332,50 @@
     <aside class="editor">
       <div class="editor-inner">
         <h1 class="title">لوحة التعديل</h1>
-        <p class="intro">اكتب بياناتك هنا، وستظهر المعاينة مباشرة في الجهة الأخرى. هذا الملف جاهز باسم <b>index.html</b> ويمكنك رفعه مباشرة على GitHub Pages.</p>
+        <p class="intro">اكتب بياناتك هنا، وستظهر المعاينة مباشرة في الجهة الأخرى. تم تعديل الملف ليكون رفع صورة البروفايل والهيدر من الجهاز مباشرة بدون روابط.</p>
 
         <section class="section">
           <h2 class="section-title">البيانات الأساسية</h2>
-          <div class="field"><label for="nameInput">الاسم</label><input id="nameInput" type="text" placeholder="اكتب اسمك هنا" /></div>
-          <div class="field"><label for="jobInput">المسمى</label><input id="jobInput" type="text" placeholder="مثال: Graphic Designer" /></div>
-          <div class="field"><label for="bioInput">الوصف</label><textarea id="bioInput" placeholder="اكتب وصفًا قصيرًا عنك أو عن خدماتك"></textarea></div>
-          <div class="field"><label for="avatarInput">رابط الصورة الشخصية</label><input id="avatarInput" type="url" placeholder="ضع رابط الصورة الشخصية" /></div>
-          <div class="field"><label for="coverInput">رابط صورة الغلاف</label><input id="coverInput" type="url" placeholder="ضع رابط صورة الغلاف" /></div>
-          <div class="field"><label for="waInput">رابط واتساب</label><input id="waInput" type="url" placeholder="مثال: https://wa.me/968xxxxxxxx" /></div>
+
+          <div class="field">
+            <label for="nameInput">الاسم</label>
+            <input id="nameInput" type="text" placeholder="اكتب اسمك هنا" />
+          </div>
+
+          <div class="field">
+            <label for="jobInput">المسمى</label>
+            <input id="jobInput" type="text" placeholder="مثال: Graphic Designer" />
+          </div>
+
+          <div class="field">
+            <label for="bioInput">الوصف</label>
+            <textarea id="bioInput" placeholder="اكتب وصفًا قصيرًا عنك أو عن خدماتك"></textarea>
+          </div>
+
+          <div class="field">
+            <label>صورة البروفايل</label>
+            <div class="upload-row">
+              <label class="upload-btn" for="avatarFileInput">رفع الصورة</label>
+              <button class="clear-btn" id="clearAvatarBtn" type="button">حذف الصورة</button>
+            </div>
+            <input id="avatarFileInput" type="file" accept="image/*" />
+            <div class="file-name" id="avatarFileName">لم يتم اختيار صورة بعد</div>
+          </div>
+
+          <div class="field">
+            <label>صورة الهيدر</label>
+            <div class="upload-row">
+              <label class="upload-btn" for="coverFileInput">رفع الصورة</label>
+              <button class="clear-btn" id="clearCoverBtn" type="button">حذف الصورة</button>
+            </div>
+            <input id="coverFileInput" type="file" accept="image/*" />
+            <div class="file-name" id="coverFileName">لم يتم اختيار صورة بعد</div>
+          </div>
+
+          <div class="field">
+            <label for="waInput">رابط واتساب</label>
+            <input id="waInput" type="url" placeholder="مثال: https://wa.me/968xxxxxxxx" />
+          </div>
         </section>
 
         <section class="section">
@@ -100,7 +390,7 @@
             <button class="action-btn primary-btn" id="saveBtn" type="button">حفظ البيانات على المتصفح</button>
             <button class="action-btn secondary-btn" id="resetBtn" type="button">إعادة ضبط</button>
           </div>
-          <p class="hint">زر الحفظ اختياري. يفيدك أثناء التجربة على جهازك فقط.</p>
+          <p class="hint">الصور التي تختارها من الجهاز ستظهر في هذا المتصفح فقط. لو تريد أن تظهر للجميع على الموقع المنشور، لازم ترفع الصور نفسها إلى GitHub أو أي استضافة صور.</p>
         </section>
       </div>
     </aside>
@@ -108,21 +398,28 @@
     <main class="preview-wrap">
       <div class="phone-shell">
         <div class="cover">
-          <div class="cover-placeholder" id="coverPlaceholder">صورة الغلاف ستظهر هنا</div>
+          <div class="cover-placeholder" id="coverPlaceholder">صورة الهيدر ستظهر هنا</div>
           <img id="coverImg" alt="cover" style="display:none;" />
         </div>
 
         <div class="content">
           <div class="avatar-wrap">
             <div class="avatar-placeholder" id="avatarPlaceholder">الصورة الشخصية</div>
-            <div class="avatar" id="avatarBox" style="display:none;"><img id="avatarImg" alt="avatar" /></div>
+            <div class="avatar" id="avatarBox" style="display:none;">
+              <img id="avatarImg" alt="avatar" />
+            </div>
+
             <div class="name" id="previewName">اسمك هنا</div>
             <div class="job" id="previewJob">المسمى الوظيفي أو التخصص</div>
             <div class="bio" id="previewBio">اكتب وصفًا قصيرًا عنك أو عن الخدمات التي تقدمها.</div>
           </div>
 
-          <div class="links" id="previewLinks"><div class="empty-box">أضف روابطك من لوحة التعديل لتظهر هنا</div></div>
+          <div class="links" id="previewLinks">
+            <div class="empty-box">أضف روابطك من لوحة التعديل لتظهر هنا</div>
+          </div>
+
           <a id="waButton" class="wa-btn" href="#" target="_blank" rel="noreferrer">أضف رابط واتساب من لوحة التعديل</a>
+
           <div class="footer-note">designed by franco</div>
         </div>
       </div>
@@ -130,9 +427,19 @@
   </div>
 
   <script>
-    const STORAGE_KEY = "franco-link-hub-template";
+    const STORAGE_KEY = "franco-link-hub-template-v2";
+
     const state = {
-      profile: { name:"", job:"", bio:"", avatar:"", cover:"", whatsapp:"" },
+      profile: {
+        name:"",
+        job:"",
+        bio:"",
+        whatsapp:"",
+        avatarData:"",
+        avatarName:"",
+        coverData:"",
+        coverName:""
+      },
       links: Array.from({ length: 6 }, () => ({ title:"", subtitle:"", url:"" }))
     };
 
@@ -140,10 +447,15 @@
       name: document.getElementById("nameInput"),
       job: document.getElementById("jobInput"),
       bio: document.getElementById("bioInput"),
-      avatar: document.getElementById("avatarInput"),
-      cover: document.getElementById("coverInput"),
       whatsapp: document.getElementById("waInput")
     };
+
+    const avatarFileInput = document.getElementById("avatarFileInput");
+    const coverFileInput = document.getElementById("coverFileInput");
+    const clearAvatarBtn = document.getElementById("clearAvatarBtn");
+    const clearCoverBtn = document.getElementById("clearCoverBtn");
+    const avatarFileName = document.getElementById("avatarFileName");
+    const coverFileName = document.getElementById("coverFileName");
 
     const previewName = document.getElementById("previewName");
     const previewJob = document.getElementById("previewJob");
@@ -161,19 +473,34 @@
 
     function isValidUrl(value){
       if(!value) return false;
-      try{ new URL(value); return true; }catch{ return false; }
+      try{
+        new URL(value);
+        return true;
+      }catch{
+        return false;
+      }
     }
 
     function createLinksEditor(){
       linksEditor.innerHTML = "";
+
       state.links.forEach((link, index) => {
         const card = document.createElement("div");
         card.className = "link-card";
         card.innerHTML = `
           <div class="link-label">رابط ${index + 1}</div>
-          <div class="field"><label>عنوان الزر</label><input type="text" data-index="${index}" data-key="title" placeholder="مثال: Instagram" /></div>
-          <div class="field"><label>وصف قصير</label><input type="text" data-index="${index}" data-key="subtitle" placeholder="مثال: أحدث أعمالي" /></div>
-          <div class="field"><label>الرابط</label><input type="url" data-index="${index}" data-key="url" placeholder="https://..." /></div>
+          <div class="field">
+            <label>عنوان الزر</label>
+            <input type="text" data-index="${index}" data-key="title" placeholder="مثال: Instagram" />
+          </div>
+          <div class="field">
+            <label>وصف قصير</label>
+            <input type="text" data-index="${index}" data-key="subtitle" placeholder="مثال: أحدث أعمالي" />
+          </div>
+          <div class="field">
+            <label>الرابط</label>
+            <input type="url" data-index="${index}" data-key="url" placeholder="https://..." />
+          </div>
         `;
         linksEditor.appendChild(card);
       });
@@ -202,9 +529,13 @@
       profileInputs.name.value = state.profile.name;
       profileInputs.job.value = state.profile.job;
       profileInputs.bio.value = state.profile.bio;
-      profileInputs.avatar.value = state.profile.avatar;
-      profileInputs.cover.value = state.profile.cover;
       profileInputs.whatsapp.value = state.profile.whatsapp;
+
+      avatarFileName.textContent = state.profile.avatarName || "لم يتم اختيار صورة بعد";
+      coverFileName.textContent = state.profile.coverName || "لم يتم اختيار صورة بعد";
+
+      avatarFileInput.value = "";
+      coverFileInput.value = "";
     }
 
     function renderText(){
@@ -214,8 +545,8 @@
     }
 
     function renderImages(){
-      if(isValidUrl(state.profile.cover)){
-        coverImg.src = state.profile.cover;
+      if(state.profile.coverData){
+        coverImg.src = state.profile.coverData;
         coverImg.style.display = "block";
         coverPlaceholder.style.display = "none";
       }else{
@@ -224,8 +555,8 @@
         coverPlaceholder.style.display = "flex";
       }
 
-      if(isValidUrl(state.profile.avatar)){
-        avatarImg.src = state.profile.avatar;
+      if(state.profile.avatarData){
+        avatarImg.src = state.profile.avatarData;
         avatarBox.style.display = "block";
         avatarPlaceholder.style.display = "none";
       }else{
@@ -250,11 +581,22 @@
         a.href = isValidUrl(link.url) ? link.url : "#";
         a.target = "_blank";
         a.rel = "noreferrer";
+
         const title = link.title || "عنوان الرابط";
         const subtitle = link.subtitle || "وصف مختصر للرابط";
-        a.innerHTML = '<div class="link-icon">🔗</div><div class="link-text"><div class="link-title"></div><div class="link-subtitle"></div></div><div class="arrow">↗</div>';
+
+        a.innerHTML = `
+          <div class="link-icon">🔗</div>
+          <div class="link-text">
+            <div class="link-title"></div>
+            <div class="link-subtitle"></div>
+          </div>
+          <div class="arrow">↗</div>
+        `;
+
         a.querySelector(".link-title").textContent = title;
         a.querySelector(".link-subtitle").textContent = subtitle;
+
         previewLinks.appendChild(a);
       });
     }
@@ -274,20 +616,33 @@
       renderImages();
       renderLinks();
       renderWhatsApp();
+      fillProfileInputs();
     }
 
     function saveToLocal(){
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      saveBtn.textContent = "تم الحفظ";
-      setTimeout(() => { saveBtn.textContent = "حفظ البيانات على المتصفح"; }, 1200);
+      try{
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        saveBtn.textContent = "تم الحفظ";
+      }catch(e){
+        saveBtn.textContent = "تعذر الحفظ";
+      }
+
+      setTimeout(() => {
+        saveBtn.textContent = "حفظ البيانات على المتصفح";
+      }, 1400);
     }
 
     function loadFromLocal(){
       try{
         const saved = localStorage.getItem(STORAGE_KEY);
         if(!saved) return;
+
         const parsed = JSON.parse(saved);
-        if(parsed.profile){ state.profile = { ...state.profile, ...parsed.profile }; }
+
+        if(parsed.profile){
+          state.profile = { ...state.profile, ...parsed.profile };
+        }
+
         if(Array.isArray(parsed.links)){
           state.links = Array.from({ length: 6 }, (_, i) => ({
             title: parsed.links[i]?.title || "",
@@ -299,26 +654,92 @@
     }
 
     function resetAll(){
-      state.profile = { name:"", job:"", bio:"", avatar:"", cover:"", whatsapp:"" };
-      state.links = Array.from({ length: 6 }, () => ({ title:"", subtitle:"", url:"" }));
-      fillProfileInputs();
+      state.profile = {
+        name:"",
+        job:"",
+        bio:"",
+        whatsapp:"",
+        avatarData:"",
+        avatarName:"",
+        coverData:"",
+        coverName:""
+      };
+
+      state.links = Array.from({ length: 6 }, () => ({
+        title:"",
+        subtitle:"",
+        url:""
+      }));
+
+      localStorage.removeItem(STORAGE_KEY);
       createLinksEditor();
       render();
-      localStorage.removeItem(STORAGE_KEY);
+    }
+
+    function readImageFile(file, type){
+      if(!file) return;
+
+      const reader = new FileReader();
+
+      reader.onload = function(evt){
+        const result = evt.target.result || "";
+
+        if(type === "avatar"){
+          state.profile.avatarData = result;
+          state.profile.avatarName = file.name;
+          avatarFileName.textContent = file.name;
+        }else{
+          state.profile.coverData = result;
+          state.profile.coverName = file.name;
+          coverFileName.textContent = file.name;
+        }
+
+        renderImages();
+      };
+
+      reader.readAsDataURL(file);
     }
 
     Object.entries(profileInputs).forEach(([key, input]) => {
       input.addEventListener("input", e => {
         state.profile[key] = e.target.value.trim();
-        render();
+
+        if(key !== "whatsapp" || isValidUrl(state.profile.whatsapp) || !state.profile.whatsapp){
+          render();
+        }else{
+          renderWhatsApp();
+        }
       });
+    });
+
+    avatarFileInput.addEventListener("change", e => {
+      const file = e.target.files && e.target.files[0];
+      readImageFile(file, "avatar");
+    });
+
+    coverFileInput.addEventListener("change", e => {
+      const file = e.target.files && e.target.files[0];
+      readImageFile(file, "cover");
+    });
+
+    clearAvatarBtn.addEventListener("click", () => {
+      state.profile.avatarData = "";
+      state.profile.avatarName = "";
+      avatarFileInput.value = "";
+      render();
+    });
+
+    clearCoverBtn.addEventListener("click", () => {
+      state.profile.coverData = "";
+      state.profile.coverName = "";
+      coverFileInput.value = "";
+      render();
     });
 
     saveBtn.addEventListener("click", saveToLocal);
     resetBtn.addEventListener("click", resetAll);
 
     loadFromLocal();
-    fillProfileInputs();
     createLinksEditor();
     render();
   </script>
