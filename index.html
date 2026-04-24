@@ -23,6 +23,7 @@
         linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 40%, #050816 100%);
     }
     a{color:inherit}
+    button,input,textarea{font-family:inherit}
     .page{min-height:100vh;display:grid;grid-template-columns:420px 1fr}
     .editor{
       border-left:1px solid var(--line);
@@ -74,16 +75,8 @@
       box-shadow:0 0 0 4px rgba(167,139,250,.12)
     }
     .hint{margin:12px 0 0;color:var(--muted2);font-size:12px;line-height:1.8}
-    .link-card{
-      border:1px solid var(--line);
-      background:var(--card2);
-      border-radius:22px;
-      padding:14px;
-      margin-bottom:14px
-    }
-    .link-label{color:var(--muted2);font-size:12px;margin-bottom:10px}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .action-btn{
+    .action-btn,.small-btn{
       border:none;
       border-radius:16px;
       padding:12px 16px;
@@ -91,52 +84,60 @@
       cursor:pointer;
       transition:.2s ease
     }
-    .primary-btn{
+    .primary-btn,.add-btn{
       background:rgba(167,139,250,.18);
       color:#fff;
       border:1px solid rgba(167,139,250,.28)
     }
-    .primary-btn:hover{background:rgba(167,139,250,.25)}
-    .secondary-btn{
+    .primary-btn:hover,.add-btn:hover{background:rgba(167,139,250,.25)}
+    .secondary-btn,.remove-btn{
       background:rgba(255,255,255,.06);
       color:#fff;
       border:1px solid var(--line)
     }
-    .secondary-btn:hover{background:rgba(255,255,255,.10)}
+    .secondary-btn:hover,.remove-btn:hover{background:rgba(255,255,255,.10)}
     .upload-row{display:flex;gap:10px;flex-wrap:wrap}
     .upload-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      min-height:48px;
-      padding:12px 16px;
-      border-radius:16px;
-      cursor:pointer;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--line);
-      color:#fff;
-      font-weight:700;
-      transition:.2s ease
+      display:inline-flex;align-items:center;justify-content:center;text-align:center;
+      min-height:48px;padding:12px 16px;border-radius:16px;cursor:pointer;
+      background:rgba(255,255,255,.06);border:1px solid var(--line);color:#fff;font-weight:700;transition:.2s ease
     }
     .upload-btn:hover{background:rgba(255,255,255,.10)}
     .clear-btn{
-      min-height:48px;
-      padding:12px 16px;
-      border-radius:16px;
-      cursor:pointer;
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-      color:#fff;
-      font-weight:700;
+      min-height:48px;padding:12px 16px;border-radius:16px;cursor:pointer;
+      background:rgba(255,255,255,.04);border:1px solid var(--line);color:#fff;font-weight:700;
     }
     .clear-btn:hover{background:rgba(255,255,255,.08)}
     .file-name{
-      margin-top:8px;
-      color:var(--muted2);
-      font-size:12px;
-      line-height:1.7;
-      word-break:break-word
+      margin-top:8px;color:var(--muted2);font-size:12px;line-height:1.7;word-break:break-word
+    }
+    .preset-card,.custom-link-card{
+      border:1px solid var(--line);
+      background:var(--card2);
+      border-radius:22px;
+      padding:14px;
+      margin-bottom:14px
+    }
+    .preset-top,.custom-top{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:12px
+    }
+    .editor-icon,.preview-icon{
+      width:46px;height:46px;min-width:46px;border-radius:16px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .editor-icon svg,.preview-icon svg{
+      width:21px;height:21px;display:block;fill:#fff
+    }
+    .preset-title,.custom-title{
+      font-size:15px;
+      font-weight:700;
+      direction:ltr;
+      text-align:left
     }
     .preview-wrap{padding:30px 14px;position:relative}
     .phone-shell{
@@ -190,54 +191,25 @@
       text-align:center
     }
     .avatar,.avatar-placeholder{
-      width:116px;
-      height:116px;
-      border-radius:50%;
-      outline:4px solid rgba(255,255,255,.12);
-      border:2px solid rgba(255,255,255,.30);
-      box-shadow:0 12px 30px rgba(0,0,0,.30);
-      overflow:hidden;
-      background:rgba(255,255,255,.08)
+      width:116px;height:116px;border-radius:50%;outline:4px solid rgba(255,255,255,.12);
+      border:2px solid rgba(255,255,255,.30);box-shadow:0 12px 30px rgba(0,0,0,.30);
+      overflow:hidden;background:rgba(255,255,255,.08)
     }
     .avatar img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block
+      width:100%;height:100%;object-fit:cover;display:block
     }
     .avatar-placeholder{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:rgba(255,255,255,.45);
-      font-size:13px;
-      line-height:1.5;
-      padding:10px
+      display:flex;align-items:center;justify-content:center;text-align:center;color:rgba(255,255,255,.45);
+      font-size:13px;line-height:1.5;padding:10px
     }
     .name{
-      margin-top:18px;
-      font-size:34px;
-      font-weight:800;
-      line-height:1.15;
-      letter-spacing:-.02em;
-      word-break:break-word
+      margin-top:18px;font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.02em;word-break:break-word
     }
     .job{
-      margin-top:8px;
-      color:var(--violet);
-      font-weight:600;
-      font-size:16px;
-      line-height:1.6;
-      word-break:break-word
+      margin-top:8px;color:var(--violet);font-weight:600;font-size:16px;line-height:1.6;word-break:break-word
     }
     .bio{
-      margin-top:14px;
-      color:rgba(255,255,255,.82);
-      max-width:360px;
-      font-size:15px;
-      line-height:2;
-      word-break:break-word
+      margin-top:14px;color:rgba(255,255,255,.82);max-width:360px;font-size:15px;line-height:2;word-break:break-word
     }
     .links{
       margin-top:28px;
@@ -256,67 +228,29 @@
       font-size:14px
     }
     .preview-link{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      text-decoration:none;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      border-radius:28px;
-      padding:16px;
-      transition:.25s ease
+      display:flex;align-items:center;gap:14px;text-decoration:none;border:1px solid var(--line);
+      background:rgba(255,255,255,.05);border-radius:28px;padding:16px;transition:.25s ease
     }
     .preview-link:hover{
-      background:rgba(255,255,255,.10);
-      border-color:var(--line2);
-      transform:translateY(-1px)
+      background:rgba(255,255,255,.10);border-color:var(--line2);transform:translateY(-1px)
     }
-    .link-icon{
-      width:58px;
-      height:58px;
-      min-width:58px;
-      border-radius:20px;
-      background:rgba(255,255,255,.10);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:22px
-    }
-    .link-text{flex:1;min-width:0;text-align:right}
-    .link-title{
-      font-size:18px;
+    .preview-link-title{
+      flex:1;
+      min-width:0;
+      text-align:left;
+      direction:ltr;
+      font-size:17px;
       font-weight:700;
-      line-height:1.4;
-      word-break:break-word
-    }
-    .link-subtitle{
-      margin-top:4px;
-      color:rgba(255,255,255,.65);
-      font-size:14px;
-      line-height:1.7;
       word-break:break-word
     }
     .arrow{color:rgba(255,255,255,.45);font-size:22px;line-height:1}
     .wa-btn{
-      display:block;
-      margin-top:18px;
-      text-align:center;
-      text-decoration:none;
-      background:var(--greenBg);
-      border:1px solid var(--greenLine);
-      color:#fff;
-      border-radius:20px;
-      padding:14px 18px;
-      font-weight:700;
-      transition:.25s ease
+      display:block;margin-top:18px;text-align:center;text-decoration:none;background:var(--greenBg);
+      border:1px solid var(--greenLine);color:#fff;border-radius:20px;padding:14px 18px;font-weight:700;transition:.25s ease
     }
     .wa-btn:hover{background:rgba(34,197,94,.26)}
     .footer-note{
-      margin-top:22px;
-      text-align:center;
-      color:rgba(255,255,255,.35);
-      font-size:12px;
-      letter-spacing:.08em
+      margin-top:22px;text-align:center;color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.08em
     }
     @media (max-width:980px){
       .page{grid-template-columns:1fr}
@@ -332,7 +266,7 @@
     <aside class="editor">
       <div class="editor-inner">
         <h1 class="title">لوحة التعديل</h1>
-        <p class="intro">اكتب بياناتك هنا، وستظهر المعاينة مباشرة في الجهة الأخرى. تم تعديل الملف ليكون رفع صورة البروفايل والهيدر من الجهاز مباشرة بدون روابط.</p>
+        <p class="intro">تم تعديل قسم الروابط ليعرض الأيقونات الخاصة بالخدمات الأساسية، ويظهر في الصفحة فقط الرابط الذي تضعه. تم حذف الوصف القصير، مع إمكانية إضافة روابط أخرى.</p>
 
         <section class="section">
           <h2 class="section-title">البيانات الأساسية</h2>
@@ -373,15 +307,22 @@
           </div>
 
           <div class="field">
-            <label for="waInput">رابط واتساب</label>
+            <label for="waInput">رابط واتساب السريع</label>
             <input id="waInput" type="url" placeholder="مثال: https://wa.me/968xxxxxxxx" />
           </div>
         </section>
 
         <section class="section">
-          <h2 class="section-title">الروابط</h2>
-          <div id="linksEditor"></div>
-          <p class="hint">اترك أي خانة فارغة وسيتم إخفاء هذا الرابط من المعاينة.</p>
+          <h2 class="section-title">الروابط الأساسية</h2>
+          <div id="presetLinksEditor"></div>
+          <p class="hint">أي رابط تتركه فارغًا لن يظهر في الصفحة النهائية.</p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">روابط إضافية</h2>
+          <div id="customLinksEditor"></div>
+          <button class="small-btn add-btn" id="addCustomLinkBtn" type="button">إضافة رابط آخر</button>
+          <p class="hint">يمكنك إضافة أي روابط إضافية بعنوانك الخاص، وستظهر بأيقونة عامة.</p>
         </section>
 
         <section class="section">
@@ -390,7 +331,7 @@
             <button class="action-btn primary-btn" id="saveBtn" type="button">حفظ البيانات على المتصفح</button>
             <button class="action-btn secondary-btn" id="resetBtn" type="button">إعادة ضبط</button>
           </div>
-          <p class="hint">الصور التي تختارها من الجهاز ستظهر في هذا المتصفح فقط. لو تريد أن تظهر للجميع على الموقع المنشور، لازم ترفع الصور نفسها إلى GitHub أو أي استضافة صور.</p>
+          <p class="hint">الصور المرفوعة من الجهاز تظهر محليًا في نفس المتصفح. لظهورها لكل زائر بعد النشر، ارفع الصور نفسها داخل GitHub أو أي استضافة صور.</p>
         </section>
       </div>
     </aside>
@@ -418,7 +359,7 @@
             <div class="empty-box">أضف روابطك من لوحة التعديل لتظهر هنا</div>
           </div>
 
-          <a id="waButton" class="wa-btn" href="#" target="_blank" rel="noreferrer">أضف رابط واتساب من لوحة التعديل</a>
+          <a id="waButton" class="wa-btn" href="#" target="_blank" rel="noreferrer">أضف رابط واتساب السريع من لوحة التعديل</a>
 
           <div class="footer-note">designed by franco</div>
         </div>
@@ -427,27 +368,40 @@
   </div>
 
   <script>
-    const STORAGE_KEY = "franco-link-hub-template-v2";
+    const STORAGE_KEY = "franco-link-hub-template-v3";
+
+    const PRESET_LINKS = [
+      { key:"whatsapp", label:"WhatsApp", placeholder:"https://wa.me/...", mode:"url" },
+      { key:"instagram", label:"Instagram", placeholder:"https://instagram.com/...", mode:"url" },
+      { key:"tiktok", label:"TikTok", placeholder:"https://tiktok.com/@...", mode:"url" },
+      { key:"youtube", label:"YouTube", placeholder:"https://youtube.com/...", mode:"url" },
+      { key:"behance", label:"Behance", placeholder:"https://behance.net/...", mode:"url" },
+      { key:"linkedin", label:"LinkedIn", placeholder:"https://linkedin.com/in/...", mode:"url" },
+      { key:"facebook", label:"Facebook", placeholder:"https://facebook.com/...", mode:"url" },
+      { key:"telegram", label:"Telegram", placeholder:"https://t.me/...", mode:"url" },
+      { key:"call", label:"Call Number", placeholder:"+96812345678", mode:"phone" }
+    ];
 
     const state = {
       profile: {
         name:"",
         job:"",
         bio:"",
-        whatsapp:"",
+        whatsappQuick:"",
         avatarData:"",
         avatarName:"",
         coverData:"",
         coverName:""
       },
-      links: Array.from({ length: 6 }, () => ({ title:"", subtitle:"", url:"" }))
+      presets: Object.fromEntries(PRESET_LINKS.map(item => [item.key, ""])),
+      customLinks: []
     };
 
     const profileInputs = {
       name: document.getElementById("nameInput"),
       job: document.getElementById("jobInput"),
       bio: document.getElementById("bioInput"),
-      whatsapp: document.getElementById("waInput")
+      whatsappQuick: document.getElementById("waInput")
     };
 
     const avatarFileInput = document.getElementById("avatarFileInput");
@@ -467,7 +421,9 @@
     const avatarPlaceholder = document.getElementById("avatarPlaceholder");
     const previewLinks = document.getElementById("previewLinks");
     const waButton = document.getElementById("waButton");
-    const linksEditor = document.getElementById("linksEditor");
+    const presetLinksEditor = document.getElementById("presetLinksEditor");
+    const customLinksEditor = document.getElementById("customLinksEditor");
+    const addCustomLinkBtn = document.getElementById("addCustomLinkBtn");
     const saveBtn = document.getElementById("saveBtn");
     const resetBtn = document.getElementById("resetBtn");
 
@@ -481,47 +437,120 @@
       }
     }
 
-    function createLinksEditor(){
-      linksEditor.innerHTML = "";
+    function normalizePhone(value){
+      return (value || "").replace(/[^\d+]/g, "");
+    }
 
-      state.links.forEach((link, index) => {
+    function getHref(item){
+      const value = (state.presets[item.key] || "").trim();
+      if(!value) return "";
+      if(item.mode === "phone"){
+        const phone = normalizePhone(value);
+        return phone ? `tel:${phone}` : "";
+      }
+      return isValidUrl(value) ? value : "";
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function iconMarkup(name){
+      const icons = {
+        WhatsApp:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5A8.5 8.5 0 0 1 7.45 19l-3.45 1 1.12-3.34A8.5 8.5 0 1 1 20 11.5Zm-8.46-5.7a6.87 6.87 0 0 0-5.81 10.56l.25.4-.66 1.96 2.04-.63.38.23a6.88 6.88 0 1 0 3.8-12.52Zm3.89 8.77c-.21-.1-1.24-.61-1.43-.68-.19-.07-.33-.1-.47.1-.14.2-.54.68-.66.82-.12.14-.25.16-.46.05a5.62 5.62 0 0 1-1.65-1.01 6.22 6.22 0 0 1-1.15-1.42c-.12-.2 0-.31.09-.41.1-.1.21-.25.31-.37.1-.12.14-.2.21-.34.07-.14.03-.26-.02-.37-.05-.1-.47-1.14-.65-1.56-.17-.41-.35-.35-.47-.36h-.4c-.14 0-.37.05-.56.26-.19.2-.74.72-.74 1.76 0 1.03.76 2.03.86 2.17.1.14 1.48 2.26 3.58 3.17.5.22.9.35 1.2.44.5.16.96.14 1.32.08.4-.06 1.24-.5 1.42-.98.17-.48.17-.88.12-.97-.05-.09-.19-.14-.4-.24Z"/></svg>`,
+        Instagram:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 1.8A3.2 3.2 0 0 0 3.8 7v10A3.2 3.2 0 0 0 7 20.2h10a3.2 3.2 0 0 0 3.2-3.2V7A3.2 3.2 0 0 0 17 3.8H7Zm10.75 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 6.4A5.6 5.6 0 1 1 6.4 12 5.6 5.6 0 0 1 12 6.4Zm0 1.8A3.8 3.8 0 1 0 15.8 12 3.8 3.8 0 0 0 12 8.2Z"/></svg>`,
+        TikTok:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 2h2.17c.18 1.57 1.08 3.05 2.53 3.92.82.49 1.78.76 2.75.77v2.26a7.08 7.08 0 0 1-4.46-1.52v7.23a5.66 5.66 0 1 1-5.66-5.66c.35 0 .68.03 1.01.1v2.3a3.33 3.33 0 0 0-1-.15 3.35 3.35 0 1 0 3.35 3.35V2Z"/></svg>`,
+        YouTube:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.96 2.96 0 0 0-2.09-2.1C17.67 4.6 12 4.6 12 4.6s-5.67 0-7.51.5A2.96 2.96 0 0 0 2.4 7.2 31.53 31.53 0 0 0 1.9 12a31.53 31.53 0 0 0 .5 4.8 2.96 2.96 0 0 0 2.09 2.1c1.84.5 7.51.5 7.51.5s5.67 0 7.51-.5a2.96 2.96 0 0 0 2.09-2.1 31.53 31.53 0 0 0 .5-4.8 31.53 31.53 0 0 0-.5-4.8ZM10.2 15.5V8.5l6 3.5-6 3.5Z"/></svg>`,
+        Behance:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h6.4c2.72 0 4.2 1.25 4.2 3.25 0 1.36-.78 2.3-1.85 2.68 1.48.3 2.42 1.47 2.42 3.16 0 2.3-1.75 3.91-4.9 3.91H3V6.5Zm5.86 5.04c1.2 0 1.88-.45 1.88-1.42 0-.92-.68-1.35-1.88-1.35H5.98v2.77h2.88Zm.22 5.18c1.44 0 2.18-.5 2.18-1.58 0-1.03-.74-1.53-2.18-1.53H5.98v3.1h3.1ZM16.1 8h5.9v1.42h-5.9V8Zm6.02 6.95h-5.87c.1 1.33.93 2.05 2.29 2.05.93 0 1.65-.37 1.95-1h1.5c-.5 1.93-2.08 3.07-4.43 3.07-2.97 0-4.9-1.93-4.9-4.95 0-2.98 1.95-5 4.82-5 3 0 4.75 1.93 4.75 5.23v.6Zm-5.8-1.52h3.94c-.12-1.2-.9-1.88-1.93-1.88-1.13 0-1.88.65-2.01 1.88Z"/></svg>`,
+        LinkedIn:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A1.75 1.75 0 1 1 3.23 5.25 1.75 1.75 0 0 1 4.98 3.5ZM3.5 8h3V20h-3V8Zm4.75 0H11v1.64h.04A3.05 3.05 0 0 1 13.8 8c3 0 3.56 1.97 3.56 4.54V20h-3v-6.61c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.53 1.72-2.53 3.49V20h-3V8Z"/></svg>`,
+        Facebook:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.45h2.5l.38-2.9H13.5V8.8c0-.84.23-1.42 1.43-1.42h1.53V4.77A18.7 18.7 0 0 0 14.23 4c-2.2 0-3.73 1.34-3.73 3.81v2.84H8v2.9h2.5V21h3Z"/></svg>`,
+        Telegram:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.85 18.3 20a1 1 0 0 1-1.44.68l-4.56-2.3-2.33 2.25a1 1 0 0 1-1.68-.63l-.22-3.94 10.15-9.16c.3-.27-.08-.48-.45-.23L5.2 14.6 1.8 13.48a1 1 0 0 1 .03-1.91l18.2-7.04a1 1 0 0 1 1.47 1.32Z"/></svg>`,
+        "Call Number":`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.5 15.5 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.8 11.8 0 0 0 3.7.59 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.47a1 1 0 0 1 1 1 11.8 11.8 0 0 0 .59 3.7 1 1 0 0 1-.24 1.02l-2.2 2.07Z"/></svg>`,
+        Custom:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.17 14.83a3 3 0 0 1 0-4.24l3.18-3.18a3 3 0 1 1 4.24 4.24l-1.06 1.06-1.41-1.41 1.06-1.06a1 1 0 1 0-1.42-1.41l-3.18 3.18a1 1 0 0 0 1.42 1.41l.53-.53 1.41 1.41-.53.53a3 3 0 0 1-4.24 0Zm5.66-5.66a3 3 0 0 1 0 4.24l-3.18 3.18a3 3 0 0 1-4.24-4.24l1.06-1.06 1.41 1.41-1.06 1.06a1 1 0 1 0 1.42 1.41l3.18-3.18a1 1 0 0 0-1.42-1.41l-.53.53-1.41-1.41.53-.53a3 3 0 0 1 4.24 0Z"/></svg>`
+      };
+      return icons[name] || icons.Custom;
+    }
+
+    function createPresetLinksEditor(){
+      presetLinksEditor.innerHTML = "";
+      PRESET_LINKS.forEach(item => {
         const card = document.createElement("div");
-        card.className = "link-card";
+        card.className = "preset-card";
         card.innerHTML = `
-          <div class="link-label">رابط ${index + 1}</div>
-          <div class="field">
-            <label>عنوان الزر</label>
-            <input type="text" data-index="${index}" data-key="title" placeholder="مثال: Instagram" />
+          <div class="preset-top">
+            <div class="editor-icon">${iconMarkup(item.label)}</div>
+            <div class="preset-title">${escapeHtml(item.label)}</div>
           </div>
           <div class="field">
-            <label>وصف قصير</label>
-            <input type="text" data-index="${index}" data-key="subtitle" placeholder="مثال: أحدث أعمالي" />
-          </div>
-          <div class="field">
-            <label>الرابط</label>
-            <input type="url" data-index="${index}" data-key="url" placeholder="https://..." />
+            <input type="${item.mode === 'phone' ? 'tel' : 'url'}" data-preset-key="${item.key}" placeholder="${escapeHtml(item.placeholder)}" />
           </div>
         `;
-        linksEditor.appendChild(card);
+        presetLinksEditor.appendChild(card);
       });
 
-      fillLinkInputs();
-
-      linksEditor.querySelectorAll("input").forEach(input => {
-        input.addEventListener("input", (e) => {
-          const i = Number(e.target.dataset.index);
-          const key = e.target.dataset.key;
-          state.links[i][key] = e.target.value.trim();
-          render();
+      presetLinksEditor.querySelectorAll("input").forEach(input => {
+        input.value = state.presets[input.dataset.presetKey] || "";
+        input.addEventListener("input", e => {
+          const key = e.target.dataset.presetKey;
+          state.presets[key] = e.target.value.trim();
+          renderLinks();
         });
       });
     }
 
-    function fillLinkInputs(){
-      linksEditor.querySelectorAll("input").forEach(input => {
-        const i = Number(input.dataset.index);
-        const key = input.dataset.key;
-        input.value = state.links[i][key] || "";
+    function createCustomLinksEditor(){
+      customLinksEditor.innerHTML = "";
+
+      if(!state.customLinks.length){
+        customLinksEditor.innerHTML = '<div class="hint" style="margin-top:0">لا توجد روابط إضافية حتى الآن.</div>';
+        return;
+      }
+
+      state.customLinks.forEach((link, index) => {
+        const card = document.createElement("div");
+        card.className = "custom-link-card";
+        card.innerHTML = `
+          <div class="custom-top">
+            <div class="editor-icon">${iconMarkup('Custom')}</div>
+            <div class="custom-title">Custom Link ${index + 1}</div>
+          </div>
+          <div class="field">
+            <label>Title</label>
+            <input type="text" data-custom-index="${index}" data-custom-key="title" placeholder="Custom title" />
+          </div>
+          <div class="field">
+            <label>URL</label>
+            <input type="url" data-custom-index="${index}" data-custom-key="url" placeholder="https://..." />
+          </div>
+          <button class="small-btn remove-btn" type="button" data-remove-custom="${index}">حذف الرابط</button>
+        `;
+        customLinksEditor.appendChild(card);
+      });
+
+      customLinksEditor.querySelectorAll("input").forEach(input => {
+        const i = Number(input.dataset.customIndex);
+        const key = input.dataset.customKey;
+        input.value = state.customLinks[i][key] || "";
+        input.addEventListener("input", e => {
+          const idx = Number(e.target.dataset.customIndex);
+          const prop = e.target.dataset.customKey;
+          state.customLinks[idx][prop] = e.target.value.trim();
+          renderLinks();
+        });
+      });
+
+      customLinksEditor.querySelectorAll("[data-remove-custom]").forEach(btn => {
+        btn.addEventListener("click", e => {
+          const idx = Number(e.target.dataset.removeCustom);
+          state.customLinks.splice(idx, 1);
+          createCustomLinksEditor();
+          renderLinks();
+        });
       });
     }
 
@@ -529,11 +558,9 @@
       profileInputs.name.value = state.profile.name;
       profileInputs.job.value = state.profile.job;
       profileInputs.bio.value = state.profile.bio;
-      profileInputs.whatsapp.value = state.profile.whatsapp;
-
+      profileInputs.whatsappQuick.value = state.profile.whatsappQuick;
       avatarFileName.textContent = state.profile.avatarName || "لم يتم اختيار صورة بعد";
       coverFileName.textContent = state.profile.coverName || "لم يتم اختيار صورة بعد";
-
       avatarFileInput.value = "";
       coverFileInput.value = "";
     }
@@ -567,47 +594,54 @@
     }
 
     function renderLinks(){
-      const visible = state.links.filter(item => item.title || item.subtitle || item.url);
       previewLinks.innerHTML = "";
 
-      if(!visible.length){
+      const rendered = [];
+
+      PRESET_LINKS.forEach(item => {
+        const raw = (state.presets[item.key] || "").trim();
+        const href = getHref(item);
+        if(raw && href){
+          rendered.push({ label:item.label, href, icon:item.label });
+        }
+      });
+
+      state.customLinks.forEach(link => {
+        const title = (link.title || "").trim();
+        const url = (link.url || "").trim();
+        if(title && isValidUrl(url)){
+          rendered.push({ label:title, href:url, icon:"Custom" });
+        }
+      });
+
+      if(!rendered.length){
         previewLinks.innerHTML = '<div class="empty-box">أضف روابطك من لوحة التعديل لتظهر هنا</div>';
         return;
       }
 
-      visible.forEach(link => {
+      rendered.forEach(item => {
         const a = document.createElement("a");
         a.className = "preview-link";
-        a.href = isValidUrl(link.url) ? link.url : "#";
+        a.href = item.href;
         a.target = "_blank";
         a.rel = "noreferrer";
-
-        const title = link.title || "عنوان الرابط";
-        const subtitle = link.subtitle || "وصف مختصر للرابط";
-
         a.innerHTML = `
-          <div class="link-icon">🔗</div>
-          <div class="link-text">
-            <div class="link-title"></div>
-            <div class="link-subtitle"></div>
-          </div>
+          <div class="preview-icon">${iconMarkup(item.icon)}</div>
+          <div class="preview-link-title"></div>
           <div class="arrow">↗</div>
         `;
-
-        a.querySelector(".link-title").textContent = title;
-        a.querySelector(".link-subtitle").textContent = subtitle;
-
+        a.querySelector(".preview-link-title").textContent = item.label;
         previewLinks.appendChild(a);
       });
     }
 
-    function renderWhatsApp(){
-      if(isValidUrl(state.profile.whatsapp)){
-        waButton.href = state.profile.whatsapp;
-        waButton.textContent = "تواصل واتساب";
+    function renderWhatsAppQuick(){
+      if(isValidUrl(state.profile.whatsappQuick)){
+        waButton.href = state.profile.whatsappQuick;
+        waButton.textContent = "WhatsApp Quick Button";
       }else{
         waButton.href = "#";
-        waButton.textContent = "أضف رابط واتساب من لوحة التعديل";
+        waButton.textContent = "أضف رابط واتساب السريع من لوحة التعديل";
       }
     }
 
@@ -615,7 +649,7 @@
       renderText();
       renderImages();
       renderLinks();
-      renderWhatsApp();
+      renderWhatsAppQuick();
       fillProfileInputs();
     }
 
@@ -626,7 +660,6 @@
       }catch(e){
         saveBtn.textContent = "تعذر الحفظ";
       }
-
       setTimeout(() => {
         saveBtn.textContent = "حفظ البيانات على المتصفح";
       }, 1400);
@@ -636,18 +669,13 @@
       try{
         const saved = localStorage.getItem(STORAGE_KEY);
         if(!saved) return;
-
         const parsed = JSON.parse(saved);
-
-        if(parsed.profile){
-          state.profile = { ...state.profile, ...parsed.profile };
-        }
-
-        if(Array.isArray(parsed.links)){
-          state.links = Array.from({ length: 6 }, (_, i) => ({
-            title: parsed.links[i]?.title || "",
-            subtitle: parsed.links[i]?.subtitle || "",
-            url: parsed.links[i]?.url || ""
+        if(parsed.profile){ state.profile = { ...state.profile, ...parsed.profile }; }
+        if(parsed.presets){ state.presets = { ...state.presets, ...parsed.presets }; }
+        if(Array.isArray(parsed.customLinks)){
+          state.customLinks = parsed.customLinks.map(item => ({
+            title: item?.title || "",
+            url: item?.url || ""
           }));
         }
       }catch(e){}
@@ -658,32 +686,25 @@
         name:"",
         job:"",
         bio:"",
-        whatsapp:"",
+        whatsappQuick:"",
         avatarData:"",
         avatarName:"",
         coverData:"",
         coverName:""
       };
-
-      state.links = Array.from({ length: 6 }, () => ({
-        title:"",
-        subtitle:"",
-        url:""
-      }));
-
+      state.presets = Object.fromEntries(PRESET_LINKS.map(item => [item.key, ""]));
+      state.customLinks = [];
       localStorage.removeItem(STORAGE_KEY);
-      createLinksEditor();
+      createPresetLinksEditor();
+      createCustomLinksEditor();
       render();
     }
 
     function readImageFile(file, type){
       if(!file) return;
-
       const reader = new FileReader();
-
       reader.onload = function(evt){
         const result = evt.target.result || "";
-
         if(type === "avatar"){
           state.profile.avatarData = result;
           state.profile.avatarName = file.name;
@@ -693,21 +714,19 @@
           state.profile.coverName = file.name;
           coverFileName.textContent = file.name;
         }
-
         renderImages();
       };
-
       reader.readAsDataURL(file);
     }
 
     Object.entries(profileInputs).forEach(([key, input]) => {
       input.addEventListener("input", e => {
         state.profile[key] = e.target.value.trim();
-
-        if(key !== "whatsapp" || isValidUrl(state.profile.whatsapp) || !state.profile.whatsapp){
-          render();
+        if(key === "whatsappQuick"){
+          renderWhatsAppQuick();
         }else{
-          renderWhatsApp();
+          renderText();
+          fillProfileInputs();
         }
       });
     });
@@ -736,11 +755,18 @@
       render();
     });
 
+    addCustomLinkBtn.addEventListener("click", () => {
+      state.customLinks.push({ title:"", url:"" });
+      createCustomLinksEditor();
+      renderLinks();
+    });
+
     saveBtn.addEventListener("click", saveToLocal);
     resetBtn.addEventListener("click", resetAll);
 
     loadFromLocal();
-    createLinksEditor();
+    createPresetLinksEditor();
+    createCustomLinksEditor();
     render();
   </script>
 </body>
